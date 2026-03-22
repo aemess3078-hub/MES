@@ -5,8 +5,10 @@ import {
   CloseOutlined,
   SendOutlined,
   ClearOutlined,
+  FileTextOutlined,
 } from '@ant-design/icons'
 import { supabase } from '../../lib/supabase'
+import AiReportModal from './AiReportModal'
 
 const { Text } = Typography
 const { TextArea } = Input
@@ -243,6 +245,7 @@ export default function AiAgentPanel({ open, onClose }) {
   ])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
+  const [reportModalOpen, setReportModalOpen] = useState(false)
   const messagesEndRef = useRef(null)
   const inputRef = useRef(null)
 
@@ -256,9 +259,28 @@ export default function AiAgentPanel({ open, onClose }) {
     }
   }, [open])
 
+  // 자연어로 리포트 요청 감지
+  const isReportRequest = (text) => {
+    const keywords = ['리포트', '보고서', '정리해', '요약해줘', '리포트 작성', '보고서 작성', '출력해줘', '정리하여']
+    return keywords.some(k => text.includes(k))
+  }
+
   const handleSend = async () => {
     const text = input.trim()
     if (!text || loading) return
+
+    // 리포트 요청 감지 → 모달 자동 오픈
+    if (isReportRequest(text)) {
+      setInput('')
+      const userMsg = { role: 'user', content: text }
+      setMessages(prev => [...prev, userMsg, {
+        role: 'assistant',
+        content: '📋 리포트 생성 창을 열었습니다! 범위를 선택하고 "리포트 생성" 버튼을 눌러주세요.',
+        streaming: false,
+      }])
+      setReportModalOpen(true)
+      return
+    }
 
     setInput('')
     const userMsg = { role: 'user', content: text }
@@ -339,6 +361,10 @@ export default function AiAgentPanel({ open, onClose }) {
     }])
   }
 
+  const handleOpenReport = () => {
+    setReportModalOpen(true)
+  }
+
   const renderContent = (content) => {
     if (!content) return null
     // 간단한 마크다운 렌더링
@@ -403,6 +429,15 @@ export default function AiAgentPanel({ open, onClose }) {
             </div>
           </div>
           <div style={{ display: 'flex', gap: 4 }}>
+            <Tooltip title="리포트 생성">
+              <Button
+                type="text"
+                icon={<FileTextOutlined />}
+                onClick={handleOpenReport}
+                style={{ color: 'rgba(255,255,255,0.8)' }}
+                size="small"
+              />
+            </Tooltip>
             <Tooltip title="대화 초기화">
               <Button
                 type="text"
@@ -500,7 +535,7 @@ export default function AiAgentPanel({ open, onClose }) {
                 '현재 재고현황 요약해줘',
                 '이번 주 불량 현황은?',
                 '고장난 설비 있어?',
-                '방금 등록한 생산지시 확인해줘',
+                '대화 내용 리포트 작성해줘',
               ].map(q => (
                 <button
                   key={q}
@@ -556,6 +591,13 @@ export default function AiAgentPanel({ open, onClose }) {
           </Text>
         </div>
       </div>
+
+      {/* 리포트 모달 */}
+      <AiReportModal
+        open={reportModalOpen}
+        onClose={() => setReportModalOpen(false)}
+        messages={messages}
+      />
 
       <style>{`
         @keyframes blink {
