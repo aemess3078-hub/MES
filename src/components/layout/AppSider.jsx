@@ -188,6 +188,9 @@ export default function AppSider({ collapsed, onCollapse }) {
             const active = isGroupActive(g)
             const isOpen = activeGroup === g.key
             const hasSub = !!g.children
+            // 다른 그룹이 열려있으면 현재 active 항목의 하이라이트 억제
+            const otherGroupOpen = activeGroup !== null && activeGroup !== g.key
+            const showActive = active && !otherGroupOpen
 
             return (
               <div
@@ -214,18 +217,18 @@ export default function AppSider({ collapsed, onCollapse }) {
                   margin: '1px 0',
                 }}
                 onMouseEnter={e => {
-                  if (!active && !isOpen) {
+                  if (!showActive && !isOpen) {
                     e.currentTarget.style.background = 'rgba(255,255,255,0.03)'
                   }
                 }}
                 onMouseLeave={e => {
-                  if (!active && !isOpen) {
+                  if (!showActive && !isOpen) {
                     e.currentTarget.style.background = 'transparent'
                   }
                 }}
               >
                 {/* 활성 배경 */}
-                {(active || isOpen) && (
+                {(showActive || isOpen) && (
                   <div style={{
                     position: 'absolute',
                     inset: '4px 6px',
@@ -242,11 +245,11 @@ export default function AppSider({ collapsed, onCollapse }) {
                   position: 'absolute',
                   left: 0, top: '50%',
                   transform: 'translateY(-50%)',
-                  width: active ? 3 : 0,
+                  width: showActive ? 3 : 0,
                   height: 28,
                   background: g.grad,
                   borderRadius: '0 3px 3px 0',
-                  boxShadow: active ? `0 0 10px ${g.color}80` : 'none',
+                  boxShadow: showActive ? `0 0 10px ${g.color}80` : 'none',
                   transition: 'width 0.2s, box-shadow 0.2s',
                 }} />
 
@@ -255,19 +258,19 @@ export default function AppSider({ collapsed, onCollapse }) {
                   width: 32, height: 32,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   borderRadius: 9,
-                  background: active
+                  background: showActive
                     ? g.grad
                     : isOpen
                       ? `${g.color}25`
                       : 'transparent',
-                  boxShadow: active ? `0 4px 12px ${g.color}50` : 'none',
+                  boxShadow: showActive ? `0 4px 12px ${g.color}50` : 'none',
                   transition: 'all 0.2s',
                   position: 'relative',
                   zIndex: 1,
                 }}>
                   <span style={{
-                    fontSize: active ? 15 : 13,
-                    color: active ? '#fff' : isOpen ? g.color : '#4a5568',
+                    fontSize: showActive ? 15 : 13,
+                    color: showActive ? '#fff' : isOpen ? g.color : '#4a5568',
                     fontWeight: 700,
                     transition: 'all 0.2s',
                     lineHeight: 1,
@@ -279,8 +282,8 @@ export default function AppSider({ collapsed, onCollapse }) {
                 {/* 라벨 */}
                 <span style={{
                   fontSize: 9.5,
-                  color: active ? g.color : isOpen ? '#94a3b8' : '#374151',
-                  fontWeight: active ? 700 : 500,
+                  color: showActive ? g.color : isOpen ? '#94a3b8' : '#374151',
+                  fontWeight: showActive ? 700 : 500,
                   letterSpacing: 0.2,
                   position: 'relative',
                   zIndex: 1,
