@@ -22,6 +22,7 @@ export default function AdminLayout() {
         transition: 'margin-right 0.3s cubic-bezier(0.4,0,0.2,1)',
         marginRight: aiOpen ? 360 : 0,
         minWidth: 0,
+        marginLeft: 0,
       }}>
         <AppHeader
           collapsed={collapsed}
