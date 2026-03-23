@@ -7,7 +7,7 @@ import { PlusOutlined, SearchOutlined, ApartmentOutlined, DeleteOutlined, PlusCi
 import { supabase } from '../../lib/supabase'
 import { getItems } from '../../services/itemService'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 const itemTypeColor = { raw: 'blue', semi: 'orange', finished: 'green' }
 const itemTypeLabel = { raw: '원자재', semi: '반제품', finished: '완제품' }
@@ -277,7 +277,7 @@ export default function BomPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>BOM 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>BOM 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

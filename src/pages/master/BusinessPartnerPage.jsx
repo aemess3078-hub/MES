@@ -9,7 +9,6 @@ import {
   updateBusinessPartner, deleteBusinessPartner,
 } from '../../services/businessPartnerService'
 
-const { Title } = Typography
 
 const typeLabel = { customer: '고객사', supplier: '공급업체', both: '고객/공급' }
 const typeColor = { customer: 'blue', supplier: 'green', both: 'purple' }
@@ -118,7 +117,7 @@ export default function BusinessPartnerPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>거래처 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>거래처 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

@@ -5,7 +5,7 @@ import { getWorkOrders } from '../../services/workOrderService'
 import { WORK_STATUS_LABEL, WORK_STATUS_COLOR } from '../../utils/constants'
 import { formatDate } from '../../utils/formatters'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 const statusBg = {
   waiting: '#f5f5f5',
@@ -49,7 +49,7 @@ export default function PopWorkListPage() {
     <div>
       <Row justify="space-between" align="middle" style={{ marginBottom: 16 }}>
         <Col>
-          <Title level={4} style={{ margin: 0 }}>작업지시 목록</Title>
+          <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>작업지시 목록</div>
         </Col>
         <Col>
           <Select

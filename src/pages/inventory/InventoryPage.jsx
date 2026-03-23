@@ -6,7 +6,6 @@ import {
 import { SearchOutlined, EditOutlined } from '@ant-design/icons'
 import { getInventory, adjustInventory } from '../../services/inventoryService'
 
-const { Title } = Typography
 
 const itemTypeLabel = { raw: '원자재', semi: '반제품', finished: '완제품' }
 const itemTypeColor = { raw: 'blue', semi: 'orange', finished: 'green' }
@@ -92,7 +91,7 @@ export default function InventoryPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>재고현황</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>재고현황</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

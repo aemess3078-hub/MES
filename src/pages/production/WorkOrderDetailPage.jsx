@@ -8,7 +8,6 @@ import { getProductionResults } from '../../services/productionResultService'
 import { WorkStatusTag } from '../../components/common/StatusBadge'
 import { formatDate, formatDateTime } from '../../utils/formatters'
 
-const { Title } = Typography
 
 export default function WorkOrderDetailPage() {
   const { id } = useParams()
@@ -63,7 +62,7 @@ export default function WorkOrderDetailPage() {
     <div>
       <Space style={{ marginBottom: 16 }}>
         <Button onClick={() => navigate(-1)}>목록으로</Button>
-        <Title level={4} style={{ margin: 0 }}>작업지시 상세</Title>
+        <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>작업지시 상세</div>
       </Space>
 
       <Card style={{ marginBottom: 16 }}>

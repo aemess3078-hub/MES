@@ -8,7 +8,6 @@ import { getProductionOrderById } from '../../services/productionOrderService'
 import { getShipments } from '../../services/shipmentService'
 import { OrderStatusTag } from '../../components/common/StatusBadge'
 
-const { Title } = Typography
 
 const SHIP_STATUS_LABEL = { completed: '완료', cancelled: '취소' }
 const SHIP_STATUS_COLOR = { completed: 'green', cancelled: 'red' }
@@ -81,7 +80,7 @@ export default function ProductionOrderDetailPage() {
     <div>
       <Space style={{ marginBottom: 16 }}>
         <Button icon={<ArrowLeftOutlined />} onClick={() => navigate('/production/orders')}>목록</Button>
-        <Title level={4} style={{ margin: 0 }}>생산오더 상세</Title>
+        <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>생산오더 상세</div>
       </Space>
 
       {/* 오더 기본정보 */}

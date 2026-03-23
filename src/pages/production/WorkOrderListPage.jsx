@@ -16,7 +16,6 @@ import { getInventoryByItemId } from '../../services/inventoryService'
 import { WorkStatusTag } from '../../components/common/StatusBadge'
 import { formatDate } from '../../utils/formatters'
 
-const { Title } = Typography
 
 export default function WorkOrderListPage() {
   const navigate = useNavigate()
@@ -195,8 +194,8 @@ export default function WorkOrderListPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>작업지시 관리</Title>
-      <Card style={{ marginBottom: 12 }}>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>작업지시 관리</div>
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: '14px 16px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
         <Row gutter={8} align="middle">
           <Col>
             <Input
@@ -229,9 +228,9 @@ export default function WorkOrderListPage() {
             <Button type="primary" icon={<PlusOutlined />} onClick={openCreate}>신규 등록</Button>
           </Col>
         </Row>
-      </Card>
+      </div>
 
-      <Card>
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14, boxShadow: '0 1px 3px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
         <Table
           dataSource={workOrders}
           columns={columns}
@@ -241,7 +240,7 @@ export default function WorkOrderListPage() {
           pagination={{ pageSize: 15, showSizeChanger: true }}
           scroll={{ x: 900 }}
         />
-      </Card>
+      </div>
 
       <Modal
         title={editTarget ? '작업지시 수정' : '작업지시 신규 등록'}

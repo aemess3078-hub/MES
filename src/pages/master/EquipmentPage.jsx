@@ -15,7 +15,6 @@ import { getProcesses } from '../../services/processService'
 import { EQUIP_STATUS_LABEL } from '../../utils/constants'
 import { EquipStatusBadge } from '../../components/common/StatusBadge'
 
-const { Title } = Typography
 
 export default function EquipmentPage() {
   const [data, setData] = useState([])
@@ -183,7 +182,7 @@ export default function EquipmentPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>설비 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>설비 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

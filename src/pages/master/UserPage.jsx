@@ -7,7 +7,6 @@ import { PlusOutlined, SearchOutlined } from '@ant-design/icons'
 import { supabase } from '../../lib/supabase'
 import { USER_ROLE_LABEL } from '../../utils/constants'
 
-const { Title } = Typography
 
 async function getUsers() {
   const { data, error } = await supabase.from('users').select('*').order('name')
@@ -136,7 +135,7 @@ export default function UserPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>사용자 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>사용자 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col flex="auto" />

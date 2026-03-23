@@ -10,7 +10,6 @@ import { getItems } from '../../services/itemService'
 import { getBusinessPartners } from '../../services/businessPartnerService'
 import { getProductionOrders } from '../../services/productionOrderService'
 
-const { Title } = Typography
 const { RangePicker } = DatePicker
 
 const STATUS_LABEL = { completed: '완료', cancelled: '취소' }
@@ -313,7 +312,7 @@ export default function ShipmentPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>출하 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>출하 관리</div>
 
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">

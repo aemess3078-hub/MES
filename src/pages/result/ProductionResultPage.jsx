@@ -6,7 +6,6 @@ import { getProductionResults } from '../../services/productionResultService'
 import { getWorkOrders } from '../../services/workOrderService'
 import { formatDateTime } from '../../utils/formatters'
 
-const { Title } = Typography
 const { RangePicker } = DatePicker
 
 export default function ProductionResultPage() {
@@ -75,7 +74,7 @@ export default function ProductionResultPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>생산실적 조회</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>생산실적 조회</div>
 
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">

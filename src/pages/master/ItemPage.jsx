@@ -10,7 +10,6 @@ import {
 import { getItems, createItem, updateItem, deleteItem, uploadWorkStandard, deleteWorkStandard } from '../../services/itemService'
 import { getRoutings } from '../../services/processRoutingService'
 
-const { Title } = Typography
 
 export default function ItemPage() {
   const [items, setItems] = useState([])
@@ -189,7 +188,7 @@ export default function ItemPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>품목 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>품목 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

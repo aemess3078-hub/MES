@@ -13,7 +13,6 @@ import { getItems } from '../../services/itemService'
 import { getBusinessPartners } from '../../services/businessPartnerService'
 import { PO_STATUS_LABEL, PO_STATUS_COLOR } from '../../utils/constants'
 
-const { Title } = Typography
 
 export default function PurchaseOrderPage() {
   const [data, setData] = useState([])
@@ -145,7 +144,7 @@ export default function PurchaseOrderPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>자재발주 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>자재발주 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

@@ -7,7 +7,6 @@ import { getDowntimes } from '../../services/downtimeService'
 import { EquipStatusBadge } from '../../components/common/StatusBadge'
 import { formatDateTime } from '../../utils/formatters'
 
-const { Title } = Typography
 const { RangePicker } = DatePicker
 
 const statusColor = {
@@ -56,7 +55,7 @@ export default function EquipmentStatusPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>설비현황</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>설비현황</div>
 
       <Row gutter={[12, 12]} style={{ marginBottom: 16 }}>
         {equipments.map((eq) => (

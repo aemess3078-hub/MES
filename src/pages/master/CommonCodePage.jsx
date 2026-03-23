@@ -6,7 +6,6 @@ import {
 import { PlusOutlined, SearchOutlined } from '@ant-design/icons'
 import { getAllGroups, getCodesByGroup, createCode, updateCode, deleteCode } from '../../services/commonCodeService'
 
-const { Title } = Typography
 
 export default function CommonCodePage() {
   const [codes, setCodes] = useState([])
@@ -113,7 +112,7 @@ export default function CommonCodePage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>공통코드 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>공통코드 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col>

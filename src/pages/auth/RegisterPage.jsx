@@ -4,7 +4,7 @@ import { UserOutlined, LockOutlined, MailOutlined } from '@ant-design/icons'
 import { useNavigate, Link } from 'react-router-dom'
 import { signUp } from '../../services/authService'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false)

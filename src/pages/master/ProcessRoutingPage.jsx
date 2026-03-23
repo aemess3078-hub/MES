@@ -14,7 +14,7 @@ import {
 } from '../../services/processRoutingService'
 import { getProcesses } from '../../services/processService'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 export default function ProcessRoutingPage() {
   const [routings, setRoutings] = useState([])
@@ -204,7 +204,7 @@ export default function ProcessRoutingPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>공정 라우팅 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>공정 라우팅 관리</div>
 
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">

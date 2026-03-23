@@ -7,7 +7,7 @@ import { SearchOutlined, ReloadOutlined } from '@ant-design/icons'
 import { supabase } from '../../lib/supabase'
 import { WorkStatusTag } from '../../components/common/StatusBadge'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 const STEP_COLOR = { waiting: '#d9d9d9', in_progress: '#1677ff', completed: '#52c41a' }
 
@@ -194,7 +194,7 @@ export default function WorkOrderMonitorPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>작업지시 진행 현황</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>작업지시 진행 현황</div>
 
       {/* 요약 카드 */}
       <Row gutter={12} style={{ marginBottom: 16 }}>
@@ -221,7 +221,7 @@ export default function WorkOrderMonitorPage() {
       </Row>
 
       {/* 검색 */}
-      <Card style={{ marginBottom: 12 }}>
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: '14px 16px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
         <Row gutter={8} align="middle">
           <Col>
             <Input
@@ -255,9 +255,9 @@ export default function WorkOrderMonitorPage() {
             <Button icon={<ReloadOutlined />} onClick={load}>새로고침</Button>
           </Col>
         </Row>
-      </Card>
+      </div>
 
-      <Card>
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14, boxShadow: '0 1px 3px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
         <Table
           dataSource={rows}
           columns={columns}
@@ -268,7 +268,7 @@ export default function WorkOrderMonitorPage() {
           scroll={{ x: 1100 }}
           rowClassName={(r) => r.status === 'in_progress' ? 'ant-table-row-selected' : ''}
         />
-      </Card>
+      </div>
     </div>
   )
 }

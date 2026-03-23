@@ -16,7 +16,7 @@ import { WorkStatusTag } from '../../components/common/StatusBadge'
 import { formatDate } from '../../utils/formatters'
 import useAuthStore from '../../store/authStore'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 const btnStyle = { height: 72, fontSize: 16, fontWeight: 600, borderRadius: 8 }
 

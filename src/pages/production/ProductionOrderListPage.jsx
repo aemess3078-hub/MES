@@ -17,7 +17,6 @@ import { OrderStatusTag } from '../../components/common/StatusBadge'
 import { formatDate } from '../../utils/formatters'
 import { ORDER_STATUS } from '../../utils/constants'
 
-const { Title } = Typography
 const { RangePicker } = DatePicker
 
 export default function ProductionOrderListPage() {
@@ -243,8 +242,8 @@ export default function ProductionOrderListPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>생산오더 관리</Title>
-      <Card style={{ marginBottom: 12 }}>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>생산오더 관리</div>
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 12, padding: '14px 16px', marginBottom: 14, display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
         <Row gutter={8} align="middle">
           <Col>
             <Input
@@ -277,9 +276,9 @@ export default function ProductionOrderListPage() {
             <Button type="primary" icon={<PlusOutlined />} onClick={openCreate}>신규 등록</Button>
           </Col>
         </Row>
-      </Card>
+      </div>
 
-      <Card>
+      <div style={{ background: '#fff', border: '1px solid #e5e7eb', borderRadius: 14, boxShadow: '0 1px 3px rgba(0,0,0,0.06)', overflow: 'hidden' }}>
         <Table
           dataSource={orders}
           columns={columns}
@@ -289,7 +288,7 @@ export default function ProductionOrderListPage() {
           pagination={{ pageSize: 15, showSizeChanger: true }}
           scroll={{ x: 800 }}
         />
-      </Card>
+      </div>
 
       {/* 출하 등록 모달 */}
       <Modal

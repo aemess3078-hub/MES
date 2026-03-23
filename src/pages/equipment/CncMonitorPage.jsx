@@ -7,7 +7,7 @@ import { WarningOutlined, ReloadOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import CncMachineIllustration from '../../components/common/CncMachineIllustration'
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 // ── 가데이터 ──────────────────────────────────────────────
 const INITIAL_MACHINES = [
@@ -238,7 +238,7 @@ export default function CncMonitorPage() {
     <div>
       {/* 타이틀 */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-        <Title level={4} style={{ margin: 0 }}>CNC 모니터링</Title>
+        <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>CNC 모니터링</div>
         <Text type="secondary" style={{ fontSize: 12 }}>
           <ReloadOutlined style={{ marginRight: 4 }} />
           마지막 갱신: {dayjs(lastRefresh).format('HH:mm:ss')}

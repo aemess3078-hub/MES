@@ -19,7 +19,7 @@ import useAuthStore from '../../store/authStore'
 
 dayjs.extend(isoWeek)
 
-const { Title, Text } = Typography
+const { Text } = Typography
 
 const CYCLE_LABEL = { daily: '일단위', weekly: '주단위', monthly: '월단위' }
 const CYCLE_PICKER = { daily: undefined, weekly: 'week', monthly: 'month' }
@@ -304,7 +304,7 @@ export default function EquipmentCheckPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>설비 일상점검</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>설비 일상점검</div>
 
       <Tabs
         activeKey={activeTab}

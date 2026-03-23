@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 import { getDefects } from '../../services/defectService'
 import { formatDateTime } from '../../utils/formatters'
 
-const { Title } = Typography
 const { RangePicker } = DatePicker
 
 export default function DefectStatusPage() {
@@ -75,7 +74,7 @@ export default function DefectStatusPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>불량현황</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>불량현황</div>
 
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">

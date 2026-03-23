@@ -10,7 +10,6 @@ import { getPurchaseOrders } from '../../services/purchaseOrderService'
 import { getItems } from '../../services/itemService'
 import ReceiptLabel from '../../components/common/ReceiptLabel'
 
-const { Title } = Typography
 
 export default function GoodsReceiptPage() {
   const [data, setData] = useState([])
@@ -153,7 +152,7 @@ export default function GoodsReceiptPage() {
 
   return (
     <div>
-      <Title level={4} style={{ marginBottom: 16 }}>입고 관리</Title>
+      <div style={{ fontSize: 20, fontWeight: 800, color: '#111827', marginBottom: 20, letterSpacing: -0.4 }}>입고 관리</div>
       <Card style={{ marginBottom: 12 }}>
         <Row gutter={8} align="middle">
           <Col><Button icon={<SearchOutlined />} onClick={load}>새로고침</Button></Col>
