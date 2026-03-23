@@ -12,25 +12,35 @@ export default function AdminLayout() {
   const [aiOpen, setAiOpen] = useState(false)
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#f1f5f9' }}>
       <AppSider collapsed={collapsed} onCollapse={setCollapsed} />
-      <Layout
-        style={{
-          transition: 'margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-          marginRight: aiOpen ? 360 : 0,
-        }}
-      >
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'hidden',
+        transition: 'margin-right 0.3s cubic-bezier(0.4,0,0.2,1)',
+        marginRight: aiOpen ? 360 : 0,
+        minWidth: 0,
+      }}>
         <AppHeader
           collapsed={collapsed}
           onCollapse={setCollapsed}
           aiOpen={aiOpen}
           onAiToggle={() => setAiOpen(prev => !prev)}
         />
-        <Content style={{ margin: '16px', minHeight: 'calc(100vh - 96px)' }}>
-          <Outlet />
-        </Content>
-      </Layout>
+        <main style={{
+          flex: 1,
+          padding: '20px 24px',
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        }}>
+          <div className="fade-in">
+            <Outlet />
+          </div>
+        </main>
+      </div>
       <AiAgentPanel open={aiOpen} onClose={() => setAiOpen(false)} />
-    </Layout>
+    </div>
   )
 }
