@@ -109,12 +109,19 @@ export default function AppSider({ collapsed, onCollapse }) {
 
   const selectedKey = location.pathname
 
-  const isGroupActive = (g) =>
-    g.key === selectedKey || g.children?.some(c => selectedKey.startsWith(c.key))
+  // 자식 없는 메뉴는 완전 일치, 자식 있는 메뉴는 자식 경로 중 하나와 완전 일치 또는 하위 경로
+  const isChildMatch = (childKey, path) => {
+    if (path === childKey) return true
+    // 슬래시로 끝나지 않는 경우 정확한 prefix 매칭 (예: /result → /result/xxx 는 매칭, /results 는 미매칭)
+    return path.startsWith(childKey + '/')
+  }
 
-  const currentGroup = menuGroups.find(g =>
-    g.key === selectedKey || g.children?.some(c => selectedKey.startsWith(c.key))
-  )
+  const isGroupActive = (g) => {
+    if (!g.children) return g.key === selectedKey
+    return g.children.some(c => isChildMatch(c.key, selectedKey))
+  }
+
+  const currentGroup = menuGroups.find(g => isGroupActive(g))
 
   // 외부 클릭 시 닫기
   useEffect(() => {
@@ -399,7 +406,7 @@ export default function AppSider({ collapsed, onCollapse }) {
               minWidth: 220,
             }}>
               {openGroup.children?.map((child, idx) => {
-                const isSelected = selectedKey.startsWith(child.key)
+                const isSelected = isChildMatch(child.key, selectedKey)
                 const isHov = hoveredChild === child.key
 
                 return (
